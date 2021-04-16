@@ -1,64 +1,119 @@
 import Head from 'next/head'
+import Router from 'next/router';
 import styles from '../styles/Home.module.css'
 
+const URL = 'https://www.amigosdanatureza.org.br/publicacoes/index.php/anap_brasil/article/download/2239/2082';
+
 export default function Home() {
+  const handleClick1 = async e => {
+    e.preventDefault();
+
+    window.open(URL, '_blank');
+
+    Router.push('/conclusao/');
+
+  }
+
+  const handleClick2 = async e => {
+    e.preventDefault();
+
+    window.location.href = URL;
+    
+    Router.push('/conclusao/');
+
+  }
+
+  const handleClick3 = async e => {
+    e.preventDefault();
+
+    var a = document.createElement('a');
+
+    document.body.appendChild(a);
+
+    a.target = '_blank';
+
+    a.download = true;
+
+    a.href = URL;
+
+    a.click();
+
+    Router.push('/conclusao/');
+    
+  }
+
+  const handleClick4 = async e => {
+    e.preventDefault();
+
+    var a = document.createElement('a');
+
+    document.body.appendChild(a);
+
+    a.target = '_blank';
+
+    a.download = true;
+
+    a.href = URL;
+
+    a.onclick = window.open(URL, '_blank');
+
+    a.click();
+
+    Router.push('/conclusao/');
+    
+  }
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>POC IOS - Download IOS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          POC IOS -  <a href="https://nextjs.org">Download</a>
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <button            
+            onClick={handleClick1}
+            className={styles.card}>
+            <h3>window.open(url, '_blank')</h3>
+            <p>Opção 1</p>
+          </button>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <button             
+          onClick={handleClick2}
+          className={styles.card}>
+           <h3>windown.location</h3>
+            <p>Opção 2</p>
+          </button>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+          <button
+            onClick={handleClick3}
             className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+            >
+            <h3>a.target = '_blank'; a.click();</h3>
+            <p>Opção 3</p>
+          </button>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          <button
+            onClick={handleClick4}
             className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
+            >
+            <h3>a.onclick = window.open(URL, '_blank')</h3>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Opção 4
             </p>
-          </a>
+          </button>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+        <p>
+          Powered by Thainá Biudes
+        </p>
       </footer>
     </div>
   )
