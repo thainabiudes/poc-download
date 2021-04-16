@@ -67,6 +67,23 @@ export default function Home() {
     
   }
 
+  const handleClick5 = async e => {
+    e.preventDefault();
+
+    var a = document.createElement('a');
+
+    document.body.appendChild(a);
+
+    a.href = URL;
+
+    a.setAttribute('data-testid', 'download-link');
+
+    a.click();
+
+    Router.push('/conclusao/');
+    
+  }
+
   React.useEffect(() => {
     userContext.dispatch.nome('Teste - contexto');
   }, [])
@@ -113,6 +130,16 @@ export default function Home() {
             <h3>a.onclick = window.open(URL, '_blank')</h3>
             <p>
               Opção 4
+            </p>
+          </button>
+
+          <button
+            onClick={handleClick5}
+            className={styles.card}
+            >
+            <h3>código antigo</h3>
+            <p>
+              Opção 5
             </p>
           </button>
         </div>
