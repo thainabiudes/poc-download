@@ -1,10 +1,14 @@
+import React from 'react';
 import Head from 'next/head'
 import Router from 'next/router';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import { UserContext } from './store/UserStore';
 
 const URL = 'https://www.amigosdanatureza.org.br/publicacoes/index.php/anap_brasil/article/download/2239/2082';
 
 export default function Home() {
+  const userContext = React.useContext(UserContext);
+
   const handleClick1 = async e => {
     e.preventDefault();
 
@@ -62,6 +66,10 @@ export default function Home() {
     Router.push('/conclusao/');
     
   }
+
+  React.useEffect(() => {
+    userContext.dispatch.nome('Teste - contexto');
+  }, [])
 
   return (
     <div className={styles.container}>
