@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head'
 import Router from 'next/router';
 import styles from '../styles/Home.module.css';
-import { UserContext } from './store/UserStore';
+import { UserContext } from '../store/UserStore';
 
 const URL = 'https://www.amigosdanatureza.org.br/publicacoes/index.php/anap_brasil/article/download/2239/2082';
 

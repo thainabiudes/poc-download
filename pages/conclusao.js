@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head'
-import { UserContext } from './store/UserStore';
+import { UserContext } from '../store/UserStore';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <h1 className={styles.title}>
           POC IOS -  <a href="https://nextjs.org">Conclusão</a>
         </h1>
-        <h2>Contexto: {userContext.state.nome}</h2>
+        <h2>Contexto: {userContext.state.nome && userContext.state.nome}</h2>
       </main>
 
       <footer className={styles.footer}>
